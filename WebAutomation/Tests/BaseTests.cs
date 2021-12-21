@@ -18,6 +18,7 @@ using WebAutomation.Objects.ElementObjects;
 using WebAutomation.Objects.AFW_Objects;
 using WebAutomation.Objects.InteractionObjects;
 using WebAutomation.Objects.BookStoreAppObjects;
+using System.Configuration;
 
 
 namespace WebAutomation.Tests
@@ -32,6 +33,9 @@ namespace WebAutomation.Tests
         public string FirefoxBrs = "gecko";
         public string IExplorBrs = "explorer";
         public string url = "https://demoqa.com/";
+        public string URL = ConfigurationManager.AppSettings["URL"];
+
+
         public Actions action;
         public IAlert alert;
         public IJavaScriptExecutor js;

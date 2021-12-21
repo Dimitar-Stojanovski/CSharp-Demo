@@ -1,9 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
+
+  <ItemGroup>
+    <COMReference Include="{bee4bfec-6683-3e67-9167-3c0cbc68f40a}">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>4</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>bee4bfec-6683-3e67-9167-3c0cbc68f40a</Guid>
+    </COMReference>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DotNetSeleniumExtras.PageObjects" Version="3.11.0" />
@@ -13,7 +22,7 @@
     <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
     <PackageReference Include="Selenium.Support" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="92.0.4515.10700" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="96.0.4664.4500" />
     <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.29.1" />
     <PackageReference Include="Selenium.WebDriver.IEDriver" Version="3.150.1.2" />
     <PackageReference Include="Selenium.WebDriver.MicrosoftDriver" Version="17.17134.0" />
@@ -22,6 +31,12 @@
     <PackageReference Include="SpecFlow.NUnit" Version="3.9.22" />
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.22" />
     <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Framework\App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
