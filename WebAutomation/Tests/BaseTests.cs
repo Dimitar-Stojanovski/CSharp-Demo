@@ -19,6 +19,7 @@ using WebAutomation.Objects.AFW_Objects;
 using WebAutomation.Objects.InteractionObjects;
 using WebAutomation.Objects.BookStoreAppObjects;
 using System.Configuration;
+using System.Configuration.Assemblies;
 
 
 namespace WebAutomation.Tests
@@ -33,7 +34,7 @@ namespace WebAutomation.Tests
         public string FirefoxBrs = "gecko";
         public string IExplorBrs = "explorer";
         public string url = "https://demoqa.com/";
-        public string URL = ConfigurationManager.AppSettings["URL"];
+        public string URL = ConfigurationManager.AppSettings["URLTest"];
 
 
         public Actions action;
@@ -93,7 +94,7 @@ namespace WebAutomation.Tests
             action = new Actions(driver);
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl(url);
+            driver.Navigate().GoToUrl(URL);
             
             textBox = new TextBox(driver , wait, action);
             checkBox = new CheckBox(driver, wait);
