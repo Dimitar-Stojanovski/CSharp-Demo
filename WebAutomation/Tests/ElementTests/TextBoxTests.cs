@@ -100,6 +100,28 @@ namespace WebAutomation.Tests.ElementTests
         }
 
 
+        [TestCaseSource(typeof(DataForTextBox), nameof(DataForTextBox.ReadContentFromExcelFile))]
+        public void InsertDataFromExcelFile(string FullName, string Email, string CurrentAddress, string PermanentAddress)
+        {
+            Assert.Multiple(() =>
+            {
+
+                menuItems.ClickOnMenuCard("Elements");
+                elementsMenuTabs.ListElementTabs("Text Box");
+                textBox.EnterFullName(FullName);
+                textBox.EnterEmail(Email);
+                textBox.EnterCurrentAddress(CurrentAddress);
+                textBox.EnterPermanentAddress(PermanentAddress);
+                javaScriptExec.ScrollBy300();
+                textBox.ClickSubmitButton();
+                //Asseerts
+                Assert.AreEqual(textBox.GetBasicInfoTitles("Name"), $"Name:{FullName}");
+                Assert.AreEqual(textBox.GetBasicInfoTitles("Email"), $"Email:{Email}");
+                Assert.AreEqual(textBox.GetBasicInfoTitles("Current Address"), $"Current Address :{CurrentAddress}");
+                Assert.AreEqual(textBox.GetBasicInfoTitles("Permananet Address"), $"Permananet Address :{PermanentAddress}");
+
+            });
+        }
 
 
 

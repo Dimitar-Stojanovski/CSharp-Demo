@@ -34,7 +34,7 @@ namespace WebAutomation.Tests
         public string FirefoxBrs = "gecko";
         public string IExplorBrs = "explorer";
         public string url = "https://demoqa.com/";
-        public string URL = ConfigurationManager.AppSettings["URLTest"];
+        
 
 
         public Actions action;
@@ -94,7 +94,7 @@ namespace WebAutomation.Tests
             action = new Actions(driver);
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl(URL);
+            driver.Navigate().GoToUrl(url);
             
             textBox = new TextBox(driver , wait, action);
             checkBox = new CheckBox(driver, wait);
